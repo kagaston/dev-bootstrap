@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Running pre-push hooks"
+echo "  -> Running tests..."
+uv run pytest app/*/tests/ -v --tb=short
+echo "==> Pre-push complete"

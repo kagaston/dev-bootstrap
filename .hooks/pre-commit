@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Running pre-commit hooks"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if git diff --cached --name-only --diff-filter=ACM | grep -q '\.py$'; then
+    echo "  -> Python files staged, running pylint..."
+    uv run pre-commit run --config development/.pre-commit-config.yaml --files $(git diff --cached --name-only --diff-filter=ACM | grep '\.py$' | tr '\n' ' ')
+fi
+
+echo "==> Pre-commit complete"

@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+        stages: [pre-commit, manual]
+      - id: end-of-file-fixer
+        stages: [pre-commit, manual]
+      - id: trailing-whitespace
+        stages: [pre-commit, manual]
+      - id: check-added-large-files
+        stages: [pre-commit, manual]
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: uv run pylint
+        language: system
+        types: [python]
+        args: [
+          "-rn",
+          "-sn",
+          "--rcfile", "development/.pylintrc",
+          "app/settings/src",
+          "app/logger/src",
+          "app/brew/src",
+          "app/shell/src",
+          "app/bootstrap/src",
+          "app/updater/src",
+          "app/cli/src",
+        ]
+        stages: [pre-commit, manual]

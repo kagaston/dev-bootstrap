@@ -1,0 +1,40 @@
+[project]
+name = "dev-bootstrap"
+version = "0.1.0"
+description = "Modular macOS development environment bootstrap toolkit"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = [
+    "dev-bootstrap-settings",
+    "dev-bootstrap-logger",
+    "dev-bootstrap-brew",
+    "dev-bootstrap-shell",
+    "dev-bootstrap-core",
+    "dev-bootstrap-updater",
+    "dev-bootstrap-cli",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "pytest-cov>=6.0",
+    "pylint>=3.0",
+    "pre-commit>=4.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["app/*/tests", "development/tests"]
+addopts = "--import-mode=importlib"
+
+[tool.uv.workspace]
+members = ["app/*"]
+exclude = ["app/__pycache__", "app/.pytest_cache"]
+
+[tool.uv.sources]
+dev-bootstrap-settings = { workspace = true }
+dev-bootstrap-logger = { workspace = true }
+dev-bootstrap-brew = { workspace = true }
+dev-bootstrap-shell = { workspace = true }
+dev-bootstrap-core = { workspace = true }
+dev-bootstrap-updater = { workspace = true }
+dev-bootstrap-cli = { workspace = true }

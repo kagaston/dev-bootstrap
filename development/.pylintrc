@@ -1,0 +1,58 @@
+[MASTER]
+ignore-patterns=.*\.(gitignore|md|pylintrc|txt|yaml|yml)
+
+[MESSAGES CONTROL]
+disable =
+  broad-exception-caught,
+  consider-using-set-comprehension,
+  cyclic-import,
+  duplicate-code,
+  fixme,
+  global-statement,
+  import-error,
+  import-outside-toplevel,
+  invalid-name,
+  logging-fstring-interpolation,
+  logging-format-interpolation,
+  missing-class-docstring,
+  missing-function-docstring,
+  missing-module-docstring,
+  redefined-outer-name,
+  too-many-arguments,
+  too-many-instance-attributes,
+  too-many-locals,
+  too-many-nested-blocks,
+  too-few-public-methods,
+  too-many-positional-arguments,
+  too-many-public-methods,
+  ungrouped-imports,
+  unnecessary-lambda-assignment,
+  unused-argument,
+  unused-variable,
+  wrong-import-order,
+  wrong-import-position,
+  attribute-defined-outside-init,
+  cell-var-from-loop,
+  condition-evals-to-constant,
+  protected-access,
+  reimported,
+  use-implicit-booleaness-not-comparison
+
+[FORMAT]
+max-line-length=150
+indent-string='    '
+
+[REPORTS]
+reports=no
+score=no
+output-format=colorized
+
+[SIMILARITIES]
+min-similarity-lines=6
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
+ignore-signatures=yes
+
+[VARIABLES]
+init-import=no
